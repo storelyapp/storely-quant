@@ -1,0 +1,27 @@
+# Core
+pandas>=2.0
+numpy>=1.26
+pyyaml>=6.0
+python-dotenv>=1.0
+
+# ML — tabular (the workhorse models)
+scikit-learn>=1.4
+lightgbm>=4.0
+xgboost>=2.0
+
+# Backtesting
+vectorbt>=0.26
+
+# Data
+yfinance>=0.2
+requests>=2.31
+
+# Dashboard/reporting (lightweight, local)
+plotly>=5.20
+
+# Testing
+pytest>=8.0
+
+# NOTE: Groww API SDK and PyTorch (for later TFT models) are intentionally
+# left out of this initial requirements file — added when the corresponding
+# agent is actually built, not speculatively.

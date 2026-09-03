@@ -1,0 +1,26 @@
+# Secrets — never commit
+.env
+*.env
+config/secrets.yaml
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Data — raw/processed data stays local, not in git
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Logs
+logs/*.log
+logs/*
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/

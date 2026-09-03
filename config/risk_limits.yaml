@@ -1,0 +1,29 @@
+# Risk agent config — these are hard limits the risk agent enforces, not suggestions.
+# Change these deliberately and with a reason logged in docs/decisions.md, not casually.
+
+capital:
+  total_capital_inr: 500000          # ₹5L target ceiling for this phase
+  paper_trading_only: true           # MUST be manually flipped to false, never a default
+
+position_sizing:
+  max_position_pct: 0.03             # max 3% of capital in a single trade
+  max_sector_concentration_pct: 0.15 # max 15% of capital in one sector at a time
+  min_position_inr: 2000             # below this, transaction costs dominate the trade — skip it
+
+drawdown:
+  daily_loss_limit_pct: 0.02         # halt trading for the day if down 2% of capital
+  max_drawdown_kill_switch_pct: 0.15 # halt ALL trading, require manual review, if down 15% from peak
+
+leverage:
+  allow_leverage: false              # no F&O/margin at this phase
+  allow_intraday_margin: false
+
+execution:
+  max_orders_per_second: 5           # stay well under SEBI's 10 ops/sec retail threshold
+  require_static_ip: true            # Groww/broker API requirement
+  session_reauth_required_daily: true
+
+validation_gate:
+  min_paper_trading_days: 60         # minimum paper trading period before live capital is even considered
+  min_walk_forward_windows: 5        # minimum out-of-sample validation windows a model must clear
+  requires_manual_signoff_before_live: true
